@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ info.name }} | Portfolio</title>
+    <style>
+        /* Minimalist CSS for quick demonstration */
+        body { font-family: sans-serif; margin: 0; padding: 20px; background-color: #f4f4f9; }
+        header { background-color: #333; color: white; padding: 10px 20px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        section { padding: 20px 0; border-bottom: 1px solid #ddd; }
+        h1, h2 { color: #333; }
+        ul { list-style: none; padding: 0; }
+        li { display: inline-block; background-color: #eee; padding: 5px 10px; margin-right: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>{{ info.name }}</h1>
+        <p>{{ info.title }}</p>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a> | 
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>👋 About Me</h2>
+        <p>{{ info.bio }}</p>
+    </section>
+
+    <section id="skills">
+        <h2>🛠️ Key Skills</h2>
+        <ul>
+            {% for skill in info.skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 {{ info.name }}</p>
+    </footer>
+
+</body>
+</html>
